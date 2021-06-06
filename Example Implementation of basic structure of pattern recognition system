@@ -1,0 +1,65 @@
+#here we are taking 10 character with 5 features i.e no. of tilted lines, no. of horizontal lines, no. of vertical lines no. of half or small semi-circles and no. of complete or big semi-circles
+
+
+
+
+import math
+import sys
+
+class data:
+    def __init__(self,charac,tiltline,horline,verline,halfsemi,compsemi):
+        self.charac=charac
+        self.tiltline=tiltline
+        self.horline=horline
+        self.verline=verline
+        self.halfsemi=halfsemi
+        self.compsemi=compsemi
+        
+traindata=[]
+traindata.append(data('A',2,1,0,0,0))
+traindata.append(data('B',0,0,1,2,0))
+traindata.append(data('C',0,0,0,0,1))
+traindata.append(data('D',0,0,1,0,1))
+traindata.append(data('E',0,3,1,0,0))
+traindata.append(data('F',0,2,1,0,0))
+traindata.append(data('G',0,1,2,0,1))
+traindata.append(data('H',0,1,2,0,0))
+traindata.append(data('I',0,2,1,0,0))
+traindata.append(data('J',0,1,1,1,0))
+
+testdata=[]
+def inserttest():
+    val=list(input("Enter character and features of the testcase\n"))
+    if(len(val)!=6):
+        print("Enter correct features and try again")
+        quit()
+    testdata.append(data(val[0],int(val[1]),int(val[2]),int(val[3]),int(val[4]),int(val[5])))
+
+ans=[]
+def caleucliddist():
+    for i in range (0,10):
+        temp=abs(traindata[i].tiltline-testdata[0].tiltline)**2
+        temp+=abs(traindata[i].horline-testdata[0].horline)**2
+        temp+=abs(traindata[i].verline-testdata[0].verline)**2
+        temp+=abs(traindata[i].halfsemi-testdata[0].halfsemi)**2
+        temp+=abs(traindata[i].compsemi-testdata[0].compsemi)**2
+        ans.append(math.sqrt(temp))
+
+def predict():
+    curr_min = sys.maxsize
+    for i in ans:
+        curr_min=min(i,curr_min)
+    
+    print("\nActual Character: \n"+testdata[0].charac)
+    print("\nCharacter recoganised as: ")
+    for i in range(10):
+        if(ans[i]==curr_min):
+            print(traindata[i].charac)
+
+def main():
+    inserttest()
+    caleucliddist()
+    predict()
+
+if __name__=="__main__":
+   main()
