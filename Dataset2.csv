@@ -1,0 +1,9 @@
+CHILLS,RUNNING NOSE,HEADACHE,FEVER,FLU
+yes,no,mild,yes,no
+yes,yes,no,no,yes
+yes,no,strong,yes,yes
+no,yes,mild,yes,yes
+no,no,no,no,no
+no,yes,strong,yes,yes
+no,yes,strong,no ,no
+yes,yes,mild,yes,yes
