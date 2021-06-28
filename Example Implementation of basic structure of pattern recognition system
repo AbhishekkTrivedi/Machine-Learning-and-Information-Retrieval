@@ -1,14 +1,11 @@
 #here we are taking 10 character with 5 features i.e no. of tilted lines, no. of horizontal lines, no. of vertical lines no. of half or small semi-circles and no. of complete or big semi-circles
 
-
-
 #importing libraries 
 
 import math
 import sys
 
 #defining a class to make a data structure for features of the character
-
 class data:
     def __init__(self,charac,tiltline,horline,verline,halfsemi,compsemi):
         self.charac=charac
