@@ -2,9 +2,12 @@
 
 
 
+#importing libraries 
 
 import math
 import sys
+
+#defining a class to make a data structure for features of the character
 
 class data:
     def __init__(self,charac,tiltline,horline,verline,halfsemi,compsemi):
@@ -15,6 +18,8 @@ class data:
         self.halfsemi=halfsemi
         self.compsemi=compsemi
         
+#creating dataset of our training data containing feature values for characters A to J
+
 traindata=[]
 traindata.append(data('A',2,1,0,0,0))
 traindata.append(data('B',0,0,1,2,0))
@@ -27,6 +32,8 @@ traindata.append(data('H',0,1,2,0,0))
 traindata.append(data('I',0,2,1,0,0))
 traindata.append(data('J',0,1,1,1,0))
 
+#we create a test data which is input from the user where we input the features of the character to be predicted 
+
 testdata=[]
 def inserttest():
     val=list(input("Enter character and features of the testcase\n"))
@@ -34,6 +41,8 @@ def inserttest():
         print("Enter correct features and try again")
         quit()
     testdata.append(data(val[0],int(val[1]),int(val[2]),int(val[3]),int(val[4]),int(val[5])))
+
+#we calculate the Euclidean distance of the given character features to all the trained data features
 
 ans=[]
 def caleucliddist():
@@ -45,6 +54,9 @@ def caleucliddist():
         temp+=abs(traindata[i].compsemi-testdata[0].compsemi)**2
         ans.append(math.sqrt(temp))
 
+#we calculate the minimum Euclidean distance so that we can find the predicted character is close to 
+#which trained character.
+
 def predict():
     curr_min = sys.maxsize
     for i in ans:
@@ -55,6 +67,8 @@ def predict():
     for i in range(10):
         if(ans[i]==curr_min):
             print(traindata[i].charac)
+
+#main function
 
 def main():
     inserttest()
