@@ -1,1 +1,8 @@
+Implementation Link:- https://github.com/tecXworld/Handwritten-Character-Recognition-using-Neural-Network/blob/main/Character_Recognition_using_Neural_Network.ipynb
 
+DataSet Link :-
+  The dataset for this project contains 372450 images of alphabets of 28×2, 
+  all present in the form of a CSV file:- 
+    https://www.kaggle.com/sachinpatel21/az-handwritten-alphabets-in-csv-format
+ 
+ 
